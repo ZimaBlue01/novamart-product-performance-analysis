@@ -1,0 +1,29 @@
+import pandas as pd
+
+def weekly_product_analysis("Insert your file_path here "):
+    """
+    Automating NovaMart's weekly analysis.
+    Steps:
+    1. First the data is loaded.
+    2. We then fill in any missing values(Price)
+    3. Calculate total revenue
+    4. Flag underperformers (<100 units)
+    5. Return summary DataFrame
+    """
+
+
+    df = pd.read_csv(file_path)
+
+    # 2) Handle missing prices (fill with category median)
+    df['price'] = df.groupby('category')['price'].transform(
+        lambda x: x.fillna(x.median())
+    )
+
+  
+    df['total_revenue'] = df['units_sold'] * df['price']
+
+
+    df['underperformers'] = df['units_sold'] < 100
+
+  
+    return df[['product_name', 'category', 'units_sold', 'price', 'total_revenue', 'underperformers']]
