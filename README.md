@@ -65,6 +65,15 @@ Avoids dropping potentially important products
 
 Makes downstream analysis reliable and repeatable
 
+
+### Cleaned & Enriched Product Dataset
+
+Missing prices and revenue values were handled by imputing revenue using  
+`units_sold × price`, while tracking which values were filled to maintain transparency.
+
+![Cleaned product dataset with imputed values](assets/charts/nans_imputed.png)
+
+
 ⚠️ Identifying Potential Underperformers (2c)
 
 Products with:
@@ -101,6 +110,15 @@ Marketing spend can be focused on high-performing categories
 Inventory strategy can prioritise revenue-driving segments
 
 Underperforming categories can be reviewed for optimisation
+
+
+### Top-Performing Categories by Total Revenue
+
+Total revenue was aggregated by product category to identify which segments
+are driving business growth post-pandemic.
+
+![Top 10 categories by total revenue](assets/charts/top_ten_revenue.png)
+
 
 🔁 Weekly Automation Function (2e)
 
